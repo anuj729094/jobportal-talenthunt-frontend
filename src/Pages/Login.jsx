@@ -36,7 +36,7 @@ const Login = () => {
         <div className='xl:w-[75rem] flex flex-col items-center my-5 md:my-10 px-3  w-full'>
             <div className=' text-center'>
                 <h2 className='font-bold text-2xl md:text-4xl tracking-wide leading-9'>Login to Continue</h2>
-                <p className=' text-sm text-[#636262] mt-3'>2,00,000+ companies hiring on Jobhunt</p>
+                <p className=' text-sm text-[#636262] mt-3'>2,00,000+ companies hiring on Talenthunt</p>
             </div>
             <div className='mt-7 w-full  listgrid flex flex-col gap-6 border-[1px] border-solid rounded-xl md:w-[30rem] py-10 px-5'>
                 {/* <button className='listgrid font-medium  w-full flex items-center justify-center gap-2 py-3  border-[1px] border-solid rounded-xl '>
