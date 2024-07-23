@@ -48,11 +48,11 @@ const Sign = () => {
                     <FcGoogle />
                     <p>Sign Up with Google</p>
                 </button> */}
-                <div className=' inline-flex items-center justify-center gap-2'>
+                {/* <div className=' inline-flex items-center justify-center gap-2'>
                     <span className=' w-[44%] h-[1px] bg-black'></span>
                     <span>OR</span>
                     <span className=' w-[44%] h-[1px] bg-black'></span>
-                </div>
+                </div> */}
                 <form className='flex flex-col gap-6 ' onSubmit={postdata}>
                     <div className=' flex flex-col'>
                         <label htmlFor="email" className=' text-sm'>Email</label>
