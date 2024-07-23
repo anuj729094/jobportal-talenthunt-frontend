@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.logo {
+    font-family: "Playwrite CU", cursive;
+}
+
+.itemlist {
+    box-shadow: 0 0 30px rgb(230, 227, 227);
+}
+
+.checkbox li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+.animate{
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+thead th{
+   padding-block: 1.5rem;
+   padding-inline: 1rem;
+
+}
+tbody tr td{
+    padding-inline: 1rem;
+    padding-block: 1.25rem;
+ }
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+@media screen and (width<768px) {
+    .nav-tabs {
+        box-shadow: 0 0 30px rgb(230, 227, 227);
+    }
+}
