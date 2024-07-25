@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner8 } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { loginuser } from '../redux/user/action';
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { IoEyeOutline } from "react-icons/io5";
+import { IoEyeOffOutline } from "react-icons/io5";
 
 const Login = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const[type , setType]=useState("password")
     const { isloading, iserror, token } = useSelector((state) => state.user)
     const [userObj, setUserObj] = useState({
         email: "", password: ""
@@ -49,19 +54,27 @@ const Login = () => {
                     <span className=' w-[44%] h-[1px] bg-black'></span>
                 </div> */}
                 <form className='flex flex-col gap-6 ' onSubmit={postdata}>
-                    <div className=' flex flex-col'>
+                    <div className=' relative flex flex-col'>
                         <label htmlFor="email" className=' text-sm'>Email</label>
                         <input type="email" id='email'  required value={userObj.email} onChange={(e) => setUserObj({ ...userObj, email: e.target.value })} className=' focus:outline-[#6A38C2] outline-none w-full py-2 mt-2 pl-2 border-[1px] border-solid rounded' />
+                        <MdEmail className=' absolute right-2 top-10' />
                     </div>
-                    <div className=' flex flex-col'>
+                    <div className=' relative flex flex-col'>
                         <label htmlFor="Password" className=' text-sm'>Password</label>
-                        <input type="password" id='Password' required  value={userObj.password} onChange={(e) => setUserObj({ ...userObj, password: e.target.value })} className='focus:outline-[#6A38C2] outline-none w-full py-2 mt-2 pl-2 border-[1px] border-solid rounded' />
+                        <input type={type} id='Password' required  value={userObj.password} onChange={(e) => setUserObj({ ...userObj, password: e.target.value })} className='focus:outline-[#6A38C2] outline-none w-full py-2 mt-2 pl-2 border-[1px] border-solid rounded' />
+                        { !userObj.password ? <button type='button' className='absolute right-2 top-10'>
+                            <RiLockPasswordFill />
+                        </button> : type==="password" ? <button type='button' className='absolute right-2 top-10' onClick={()=>setType("text")}>
+                            <IoEyeOutline />
+                        </button> : <button type='button' className='absolute right-2 top-10' onClick={()=>setType("password")}>
+                            <IoEyeOffOutline />
+                        </button>}
                     </div>
                     <button type='submit' className='flex justify-center bg-[#6A38C2] hover:bg-[#9867ed] text-white rounded-md py-3'>
                         {isloading ? <ImSpinner8 className='spinner text-xl animate' /> : <p>Login</p>}
                     </button>
                 </form>
-                <p className='text-sm flex items-center justify-center gap-1'>New User? <span className=' font-semibold text-[#6A38C2]'>Sign Up</span></p>
+                <p className='text-sm flex items-center justify-center gap-1'>New User? <Link to="/register-user" className=' font-semibold text-[#6A38C2]'>Sign Up</Link></p>
                 <div className=' text-sm my-5'>
                     <p className=' underline font-medium'>Demo User</p>
                     <p className=' mt-2'>Email : demouser456@gmail.com</p>
