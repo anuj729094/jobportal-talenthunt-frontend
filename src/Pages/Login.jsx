@@ -62,6 +62,11 @@ const Login = () => {
                     </button>
                 </form>
                 <p className='text-sm flex items-center justify-center gap-1'>New User? <span className=' font-semibold text-[#6A38C2]'>Sign Up</span></p>
+                <div className=' text-sm my-5'>
+                    <p className=' underline font-medium'>Demo User</p>
+                    <p className=' mt-2'>Email : demouser456@gmail.com</p>
+                    <p>Password : demouser</p>
+                </div>
             </div>
             <Toaster />
         </div>
